@@ -16,6 +16,9 @@ dependencies:
     version: 4.25.2
 
 devDependencies:
+  '@types/ejs':
+    specifier: ^3.1.5
+    version: 3.1.5
   '@types/node':
     specifier: ^20.11.5
     version: 20.11.5
@@ -53,6 +56,10 @@ packages:
       fastify-plugin: 4.5.1
       hashlru: 2.3.0
     dev: false
+
+  /@types/ejs@3.1.5:
+    resolution: {integrity: sha512-nv+GSx77ZtXiJzwKdsASqi+YQ5Z7vwHsTP0JY2SiQgjGckkBRKZnk8nIM+7oUZ1VCtuTz0+By4qVR7fqzp/Dfg==}
+    dev: true
 
   /@types/node@20.11.5:
     resolution: {integrity: sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w==}
