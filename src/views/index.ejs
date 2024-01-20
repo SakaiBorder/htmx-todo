@@ -11,7 +11,7 @@
   <section class="w-10/12 m-auto text-gray-700">
     <header class="p-1 font-bold">HTMX TODO</header>
     <main>
-      <ul>
+      <ul id="todo-list">
         <% for (var todo of todos) { %>
           <li class="w-auto flex items-center text-center text-gray-700 bg-gray-200 hover:bg-gray-300 p-4 outline-none hover:shadow-outline mt-1">
             <div class="w-1/2 flex-1 break-words"><%= todo.title %></div>
@@ -26,6 +26,22 @@
           </li>
         <% } %>
       </ul>
+      <form
+        hx-post="/todos"
+        hx-target="#todo-list"
+        hx-swap="beforeend"
+        hx-on::after-request="document.querySelector('input[name*=title]').value = null"
+        class="add-todo flex justify-end mt-1"
+      >
+        <input
+          name="title"
+          type="text"
+          placeholder="write a thing to do"
+          class="bg-gray-200 hover:bg-gray-300 hover:border-gray-300 outline-none hover:shadow-outline rounded-lg mr-1 pl-2"
+          autofocus
+        />
+        <button class="bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline rounded py-1 px-3">Add</button>
+      </form>
     </main>
   </section>
 </body>
