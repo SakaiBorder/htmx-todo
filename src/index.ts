@@ -51,6 +51,17 @@ server.post('/todos', async(request, reply) => {
   return reply.view('includes/todo-item.ejs', { todo })
 })
 
+server.patch('/todos/:id', async (request, reply) => {
+  const { id } = request.params as { id: string }
+  const todo = todos.find(todo => todo.id === id)
+
+  if (todo) {
+    todo.done = !todo?.done
+  }
+
+  return reply.view('includes/todo-list.ejs', { todos })
+})
+
 server.delete('/todos/:id', async (request, reply) => {
   const { id } = request.params as { id: string }
   const index = todos.findIndex(todo => todo.id === id)
