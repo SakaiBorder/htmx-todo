@@ -19,17 +19,17 @@ const todos = [
   {
     id: uuid(),
     title: "Wash Dishes",
-    done: true    
+    done: true
   },
   {
-      id: uuid(),
-      title: "Go to Library",
-      done: false
+    id: uuid(),
+    title: "Go to Library",
+    done: false
   },
   {
-      id: uuid(),
-      title: "Study Math",
-      done: false
+    id: uuid(),
+    title: "Study Math",
+    done: false
   }
 ]
 
@@ -37,10 +37,10 @@ server.get('/', async (request, reply) => {
   return reply.view('index.ejs', { todos: todos })
 })
 
-server.post('/todos', async(request, reply) => {
+server.post('/todos', async (request, reply) => {
   const body = request.body as { title: string }
 
-  const todo =   {
+  const todo = {
     id: uuid(),
     title: body.title,
     done: false
