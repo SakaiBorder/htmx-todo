@@ -51,6 +51,15 @@ server.post('/todos', async(request, reply) => {
   return reply.view('includes/todo-item.ejs', { todo })
 })
 
+server.delete('/todos/:id', async (request, reply) => {
+  const { id } = request.params as { id: string }
+  const index = todos.findIndex(todo => todo.id === id)
+
+  todos.splice(index, 1)
+
+  return reply.view('includes/todo-list.ejs', { todos })
+})
+
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {
     console.error(err)
