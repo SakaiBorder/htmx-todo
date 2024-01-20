@@ -18,6 +18,7 @@
         hx-post="/todos"
         hx-target="#todo-list"
         hx-swap="beforeend"
+        hx-on::before-request="if (!document.querySelector('input[name*=title]')?.value) { event.preventDefault() }"
         hx-on::after-request="document.querySelector('input[name*=title]').value = null"
         class="add-todo flex justify-end mt-1"
       >
