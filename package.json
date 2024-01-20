@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/formbody": "^7.4.0",
     "@fastify/view": "^8.2.0",
     "@types/uuid": "^9.0.7",
     "ejs": "^3.1.9",
