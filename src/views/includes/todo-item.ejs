@@ -6,6 +6,7 @@
       type="checkbox"
       hx-patch="/todos/<%= todo.id %>"
       hx-trigger="click delay:100ms"
+      hx-disabled-elt="this"
       class="form-checkbox bg-teal-500 mt-1 ml-2"
       <%= todo.done ? "checked" : "" %>
     />
@@ -15,6 +16,7 @@
       hx-delete="/todos/<%= todo.id %>"
       hx-target="#todo-list"
       hx-swap="innerHTML"
+      hx-disabled-elt="this"
       class="h-8 bg-pink-300 hover:bg-pink-600 focus:outline-none focus:shadow-outline rounded pr-2 pl-2 pb-1">remove</button>
   </div>
 </li>

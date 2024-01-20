@@ -28,7 +28,10 @@
           class="bg-gray-200 hover:bg-gray-300 hover:border-gray-300 outline-none hover:shadow-outline rounded-lg mr-1 pl-2"
           autofocus
         />
-        <button class="bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline rounded py-1 px-3">Add</button>
+        <button
+          hx-disabled-elt="this"
+          class="bg-teal-500 hover:bg-teal-600 focus:outline-none focus:shadow-outline rounded py-1 px-3"
+        >Add</button>
       </form>
     </main>
   </section>
