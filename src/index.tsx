@@ -1,5 +1,3 @@
-// import path from 'path'
-
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { html } from 'hono/html'
@@ -7,23 +5,9 @@ import { jsxRenderer } from 'hono/jsx-renderer'
 
 import { ToDoForm, ToDoItem, ToDoList } from './components'
 
-// import { fastify } from 'fastify'
-// import fastifyView from '@fastify/view'
-// import fastifyFormBody from '@fastify/formbody'
-// import ejs from 'ejs'
 import { v4 as uuid } from 'uuid'
 
-// const server = fastify()
 const app = new Hono()
-
-// app.get('/', (c) => c.text('Hono!'))
-// server.register(fastifyView, {
-//   engine: {
-//     ejs: ejs,
-//   },
-//   root: path.join(__dirname, "../src/views")
-// })
-// server.register(fastifyFormBody)
 
 const todos = [
   {
@@ -42,10 +26,6 @@ const todos = [
     done: false
   }
 ]
-
-// server.get('/', async (request, reply) => {
-//   return reply.view('index.ejs', { todos: todos })
-// })
 
 const view = jsxRenderer(({ children }) => {
   return html`
@@ -113,13 +93,6 @@ app.delete('/todos/:id', async (c) => {
   return c.html(ToDoList({todoItems: todos}))
 })
 
-// server.listen({ port: 8080 }, (err, address) => {
-//   if (err) {
-//     console.error(err)
-//     process.exit(1)
-//   }
-//   console.log(`Server listening at ${address}`)
-// })
 const port = 8080
 console.log(`Server is running on port ${port}`)
 
