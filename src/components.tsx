@@ -11,7 +11,7 @@ export const ToDoItem = (todo: ToDo) => (
       <label>Done</label>
       <input
         type="checkbox"
-        hx-patch="/todos/<%= todo.id %>"
+        hx-patch={`/todos/${todo.id}`}
         hx-trigger="click delay:100ms"
         hx-disabled-elt="this"
         class="form-checkbox bg-teal-500 mt-1 ml-2"

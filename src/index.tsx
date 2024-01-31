@@ -93,16 +93,16 @@ app.get('/', async (c) => {
 //   return reply.view('includes/todo-item.ejs', { todo })
 // })
 
-// server.patch('/todos/:id', async (request, reply) => {
-//   const { id } = request.params as { id: string }
-//   const todo = todos.find(todo => todo.id === id)
+app.patch('/todos/:id', async (c) => {
+  const id = c.req.param('id')
+  const todo = todos.find(todo => todo.id === id)
 
-//   if (todo) {
-//     todo.done = !todo?.done
-//   }
+  if (todo) {
+    todo.done = !todo?.done
+  }
 
-//   return reply.view('includes/todo-list.ejs', { todos })
-// })
+  return c.html(ToDoList({todoItems: todos}))
+})
 
 app.delete('/todos/:id', async (c) => {
   const id = c.req.param('id')
