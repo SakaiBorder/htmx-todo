@@ -2,24 +2,24 @@
   "name": "htmx_todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
+    "dev": "tsx watch src/index.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastify/formbody": "^7.4.0",
-    "@fastify/view": "^8.2.0",
-    "ejs": "^3.1.9",
-    "fastify": "^4.25.2",
+    "@hono/node-server": "^1.7.0",
+    "hono": "^3.12.8",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",
     "@types/node": "^20.11.5",
     "@types/uuid": "^9.0.7",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },
   "volta": {
