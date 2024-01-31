@@ -104,14 +104,14 @@ app.get('/', async (c) => {
 //   return reply.view('includes/todo-list.ejs', { todos })
 // })
 
-// server.delete('/todos/:id', async (request, reply) => {
-//   const { id } = request.params as { id: string }
-//   const index = todos.findIndex(todo => todo.id === id)
+app.delete('/todos/:id', async (c) => {
+  const id = c.req.param('id')
+  const index = todos.findIndex(todo => todo.id === id)
 
-//   todos.splice(index, 1)
+  todos.splice(index, 1)
 
-//   return reply.view('includes/todo-list.ejs', { todos })
-// })
+  return c.html(ToDoList({todoItems: todos}))
+})
 
 // server.listen({ port: 8080 }, (err, address) => {
 //   if (err) {

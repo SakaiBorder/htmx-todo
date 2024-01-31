@@ -20,7 +20,7 @@ export const ToDoItem = (todo: ToDo) => (
     </div>
     <div class="w-20 flex-1">
       <button
-        hx-delete="/todos/<%= todo.id %>"
+        hx-delete={`/todos/${todo.id}`}
         hx-target="#todo-list"
         hx-swap="innerHTML"
         hx-disabled-elt="this"
