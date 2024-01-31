@@ -5,9 +5,7 @@
 ```bash
 pnpm install
 
-pnpm tsc --project ./tsconfig.json
-
-node dist/index.js
+pnpm dev
 ```
 
 Then access `http://localhost:8080`
