@@ -1,7 +1,9 @@
-import path from 'path'
+// import path from 'path'
 
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { html } from 'hono/html'
+import { jsxRenderer } from 'hono/jsx-renderer'
 
 // import { fastify } from 'fastify'
 // import fastifyView from '@fastify/view'
@@ -42,6 +44,29 @@ const todos = [
 // server.get('/', async (request, reply) => {
 //   return reply.view('index.ejs', { todos: todos })
 // })
+
+const view = jsxRenderer(({ children }) => {
+  return html`
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+      <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <title>Hono + htmx</title>
+    </head>
+    <body>
+    </body>
+  </html>
+  `
+})
+
+app.get('*', view)
+
+app.get('/', async (c) => {
+  return c.html(<h1>Hello!</h1>)
+})
 
 // server.post('/todos', async (request, reply) => {
 //   const body = request.body as { title: string }

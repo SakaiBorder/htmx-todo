@@ -2,9 +2,9 @@
   "name": "htmx_todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch src/index.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
