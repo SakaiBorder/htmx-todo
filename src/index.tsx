@@ -5,6 +5,8 @@ import { Hono } from 'hono'
 import { html } from 'hono/html'
 import { jsxRenderer } from 'hono/jsx-renderer'
 
+import { ToDoForm, ToDoItem, ToDoList } from './components'
+
 // import { fastify } from 'fastify'
 // import fastifyView from '@fastify/view'
 // import fastifyFormBody from '@fastify/formbody'
@@ -48,24 +50,33 @@ const todos = [
 const view = jsxRenderer(({ children }) => {
   return html`
   <!DOCTYPE html>
-  <html>
+  <html lang="ja">
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <script src="https://unpkg.com/htmx.org@1.9.3"></script>
-      <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>HTMX TODO</title>
+      <script defer src="https://unpkg.com/htmx.org@1.9.10"></script>
       <script src="https://cdn.tailwindcss.com"></script>
-      <title>Hono + htmx</title>
     </head>
-    <body>
-    </body>
-  </html>
+      <body>
+        ${children}
+      </body>
+    </html>
   `
 })
 
 app.get('*', view)
 
 app.get('/', async (c) => {
-  return c.html(<h1>Hello!</h1>)
+  return c.render(
+    <section class="w-10/12 m-auto text-gray-700">
+      <header class="p-1 font-bold">HTMX TODO</header>
+      <main>
+        <ToDoList todoItems={todos} />
+        <ToDoForm />
+      </main>
+    </section>
+  )
 })
 
 // server.post('/todos', async (request, reply) => {
