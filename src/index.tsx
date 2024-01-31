@@ -79,19 +79,19 @@ app.get('/', async (c) => {
   )
 })
 
-// server.post('/todos', async (request, reply) => {
-//   const body = request.body as { title: string }
+app.post('/todos', async (c) => {
+  const post = await c.req.parseBody<{title: string}>()
 
-//   const todo = {
-//     id: uuid(),
-//     title: body.title,
-//     done: false
-//   }
+  const todo = {
+    id: uuid(),
+    title: post.title,
+    done: false
+  }
 
-//   todos.push(todo)
+  todos.push(todo)
 
-//   return reply.view('includes/todo-item.ejs', { todo })
-// })
+  return c.html(ToDoItem(todo))
+})
 
 app.patch('/todos/:id', async (c) => {
   const id = c.req.param('id')
